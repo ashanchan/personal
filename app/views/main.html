@@ -1,0 +1,128 @@
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Activity Logs</div>
+            <div class="panel-body" style="max-height: 285px;overflow: auto;">
+                <table class='table table-striped'>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Date</th>
+                            <th style="text-align: right">Activity</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="data in activity">
+                        <td>
+                            <small>{{$index+1}}</small>
+                        </td>
+                        <td>
+                            <small>{{data.z | date:'dd/MMMM/yyyy'}}</small>
+                        </td>
+                        <td style="text-align: right">
+                            <small>{{data.y | number}}</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Graph</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="btn-group btn-group-xs" role="group" aria-label="..." style="float:left">
+                        <button type="button" class="btn btn-info" ng-repeat="data in activeButton" ng-click="showTrend(data.value)">{{data.label}}</button>
+                    </div>
+                    <div class="btn-group btn-group-xs" role="group" aria-label="..." style="float:right">
+                        <button type="button" class="btn btn-success" ng-click="showTrend('mean')">Mean Line</button>
+                        <button type="button" class="btn btn-warning" ng-click="showTrend('trend')">Trend Line</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="vertical-text">
+                        <h5>Activity</h5>
+                    </div>
+
+                    <div class="col-md-5">
+                        <svg id="svg_line" ng-attr-height="{{lineGraph.height+25}}" ng-attr-width="{{lineGraph.width+25}}">
+                            <path class="line" ng-attr-d="{{line(points)}}"></path>
+                        </svg>
+                    </div>
+                    <div class="horizontal-text">
+                        <h5>Day</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Segment [{{totalSegment}}]</div>
+            <div class="panel-body">
+                <table class='table borderless'>
+                    <tr ng-repeat="data in segment">
+                        <td>
+                            <small>{{data.label}}</small>
+                        </td>
+                        <td style="text-align: right">
+                            <small>{{data.value | number}}</small>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <svg id="svg_segment" ng-attr-height="{{pieGraph.height}}" ng-attr-width="{{pieGraph.width}}"></svg>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Devices [{{totalSegment}}]</div>
+            <div class="panel-body">
+                <table class='table borderless'>
+                    <tr ng-repeat="data in device">
+                        <td>
+                            <small>{{data.label}}</small>
+                        </td>
+                        <td style="text-align: right">
+                            <small>{{data.value | number}}</small>
+                        </td>
+                    </tr>
+                </table>
+
+                <hr>
+                <svg id="svg_device" ng-attr-height="{{pieGraph.height}}" ng-attr-width="{{pieGraph.width}}"></svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Max sum in array</div>
+            <div class="panel-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="testArray" placeholder="Input Valid Numbers seperated by , E.g: 1, 2, -3 ">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success" ng-click="showMaxSum(testArray)">Get it!</button>
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="label label-primary">Answer : {{maxSumAnswer}}</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>

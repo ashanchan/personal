@@ -1,0 +1,47 @@
+.borderless {
+    min-height: 75px;
+}
+
+.borderless td {
+    border-top: none !important;
+    padding: 0px !important;
+}
+
+.vertical-text {
+    transform: rotate(270deg);
+    transform-origin: left top 0;
+    float: left;
+    width: 20px;
+    margin-top: 112px;
+    color: steelblue;
+}
+
+.horizontal-text {
+    text-align: center;
+    color: steelblue;
+    clear: both;
+}
+
+.graph-label {
+    fill: #fff;
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
