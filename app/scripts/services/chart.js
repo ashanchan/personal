@@ -65,7 +65,7 @@ angular.module('dashboardApp').service('Chart', [function () {
             .attr("transform", "translate(" + pieRadius + "," + pieRadius + ")")
 
         var arc = d3.svg.arc()
-            .innerRadius(50)
+            .innerRadius(0)
             .outerRadius(pieRadius);
 
         var pie = d3.layout.pie()
